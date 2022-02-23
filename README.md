@@ -3,8 +3,8 @@
 ```sh
 pnpm install
 
-pnpm run dev
-pnpm run dev:tsc
+pnpm run dev  # start remix app
+pnpm run tsc:dev  # type check
 
 pnpm run lint
 
