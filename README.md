@@ -5,6 +5,7 @@ pnpm install
 
 pnpm run dev  # start remix app
 pnpm run tsc:dev  # type check
+pnpm run tailwind:dev  # tailwind css generation
 
 pnpm run lint
 
@@ -16,12 +17,20 @@ netlify sites:create --name remix-netlify-manual-build-hiro18181
 netlify link --name remix-netlify-manual-build-hiro18181
 
 # database setup
-docker-compse up
-pnpm run db:reset
-pnpx knex migrate:latest
+pnpm run services:up
+pnpm run db:setup
 
 # migration on production
 pnpx knex --knexfile knexfile.production.js migrate:latest
+
+# testing
+# - jest
+pnpm run db:setup:test
+pnpm run test
+# - playwright
+pnpm run db:setup:test
+pnpx playwright install
+pnpm run test:playwright
 ```
 
 ## references

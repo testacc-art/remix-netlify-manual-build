@@ -1,3 +1,5 @@
+const env = process.env.DATABASE_ENV ?? "development";
+
 /**
  * @type {import("knex").Knex.Config}
  */
@@ -8,7 +10,7 @@ module.exports = {
     port: 3306,
     user: "root",
     password: "password",
-    database: "remix_development",
+    database: `remix_${env}`,
   },
   migrations: {
     directory: "app/db/migrations",

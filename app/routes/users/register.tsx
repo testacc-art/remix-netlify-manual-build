@@ -14,8 +14,6 @@ import {
 import { toFormData } from "../../utils/misc";
 import { ajv } from "../../utils/validation";
 
-// TODO: testing
-
 export const action: ActionFunction = async ({ request }) => {
   const data = await toFormData<RegisterData>(request);
 
