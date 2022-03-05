@@ -14,6 +14,14 @@ pnpm run deploy
 # netlify initial setup
 netlify sites:create --name remix-netlify-manual-build-hiro18181
 netlify link --name remix-netlify-manual-build-hiro18181
+
+# database setup
+docker-compse up
+pnpm run db:reset
+pnpx knex migrate:latest
+
+# migration on production
+pnpx knex --knexfile knexfile.production.js migrate:latest
 ```
 
 ## references
