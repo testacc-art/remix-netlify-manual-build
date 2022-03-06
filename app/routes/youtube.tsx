@@ -1,5 +1,5 @@
 import { fetch } from "@remix-run/node";
-import { json, LoaderFunction } from "@remix-run/server-runtime";
+import { LoaderFunction, json } from "@remix-run/server-runtime";
 
 export const loader: LoaderFunction = async ({ request }) => {
   const id = new URL(request.url).searchParams.get("id") ?? "MoH8Fk2K9bc";

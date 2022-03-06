@@ -1,7 +1,7 @@
+import { createHash } from "crypto";
 import { Static, Type as t } from "@sinclair/typebox";
 import * as bcrypt from "bcryptjs";
-import { createHash } from "crypto";
-import { users, UserTable } from "../db/models.server";
+import { UserTable, users } from "../db/models.server";
 import { commitSession, getSession } from "./session.server";
 
 export const NAME_MAX_LENGTH = 32;

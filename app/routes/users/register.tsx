@@ -4,11 +4,11 @@ import { Type as t } from "@sinclair/typebox";
 import * as React from "react";
 import { users } from "../../db/models.server";
 import {
-  makePasswordHash,
   NAME_MAX_LENGTH,
   PASSWORD_MAX_LENGTH,
-  RegisterData,
   REGISTER_DATA_SCHEMA,
+  RegisterData,
+  makePasswordHash,
   setSessionUser,
 } from "../../utils/authentication.server";
 import { toFormData } from "../../utils/misc";

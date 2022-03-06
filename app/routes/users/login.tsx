@@ -3,11 +3,11 @@ import { ActionFunction, redirect } from "@remix-run/server-runtime";
 import { Type as t } from "@sinclair/typebox";
 import * as React from "react";
 import {
-  login,
   NAME_MAX_LENGTH,
   PASSWORD_MAX_LENGTH,
-  RegisterData,
   REGISTER_DATA_SCHEMA,
+  RegisterData,
+  login,
   setSessionUser,
 } from "../../utils/authentication.server";
 import { toFormData } from "../../utils/misc";

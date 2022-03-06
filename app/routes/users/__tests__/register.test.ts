@@ -1,6 +1,6 @@
+import * as assert from "assert/strict";
 import { afterAll, beforeEach, describe, expect, it } from "@jest/globals";
 import { installGlobals } from "@remix-run/node";
-import * as assert from "assert/strict";
 import { client } from "../../../db/client.server";
 import { users } from "../../../db/models.server";
 import { action } from "../register";
