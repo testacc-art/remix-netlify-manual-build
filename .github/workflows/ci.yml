@@ -39,7 +39,7 @@ jobs:
       - run: pnpm --version
       - uses: actions/setup-node@v3
         with:
-          node-version: "16.19.0"
+          node-version: "16.9.0"
       - run: corepack enable
       - run: pnpm --version
       - run: pnpm install --frozen-lockfile
