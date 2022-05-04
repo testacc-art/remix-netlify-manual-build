@@ -3,31 +3,31 @@ name: CI
   - push
   - workflow_dispatch
 jobs:
-  lint:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.0.1
-        with:
-          version: "6.29.1"
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "16.14.0"
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm run lint
+#   lint:
+#     runs-on: ubuntu-20.04
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: pnpm/action-setup@v2.0.1
+#         with:
+#           version: "6.29.1"
+#       - uses: actions/setup-node@v2
+#         with:
+#           node-version: "16.14.0"
+#       - run: pnpm install --frozen-lockfile
+#       - run: pnpm run lint
 
-  tsc:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.0.1
-        with:
-          version: "6.29.1"
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "16.14.0"
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm run tsc
+#   tsc:
+#     runs-on: ubuntu-20.04
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: pnpm/action-setup@v2.0.1
+#         with:
+#           version: "6.29.1"
+#       - uses: actions/setup-node@v2
+#         with:
+#           node-version: "16.14.0"
+#       - run: pnpm install --frozen-lockfile
+#       - run: pnpm run tsc
 
   build:
     runs-on: ubuntu-20.04
@@ -36,27 +36,30 @@ jobs:
       - uses: pnpm/action-setup@v2.0.1
         with:
           version: "6.29.1"
-      - uses: actions/setup-node@v2
+      - run: pnpm --version
+      - uses: actions/setup-node@v3
         with:
-          node-version: "16.14.0"
+          node-version: "16.19.0"
+      - run: corepack enable
+      - run: pnpm --version
       - run: pnpm install --frozen-lockfile
       - run: pnpm run build
 
-  test:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.0.1
-        with:
-          version: "6.29.1"
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "16.14.0"
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm run services:up
-      - run: pnpm run services:wait
-      - run: pnpm run db:setup:test
-      - run: pnpm run test
+#   test:
+#     runs-on: ubuntu-20.04
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: pnpm/action-setup@v2.0.1
+#         with:
+#           version: "6.29.1"
+#       - uses: actions/setup-node@v2
+#         with:
+#           node-version: "16.14.0"
+#       - run: pnpm install --frozen-lockfile
+#       - run: pnpm run services:up
+#       - run: pnpm run services:wait
+#       - run: pnpm run db:setup:test
+#       - run: pnpm run test
 
   integration:
     runs-on: ubuntu-20.04
